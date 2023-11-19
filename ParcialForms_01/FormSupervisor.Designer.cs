@@ -36,6 +36,7 @@
             Productos = new ListBox();
             label1 = new Label();
             bttnStock = new Button();
+            bttnUsers = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             bttnCrearProduct.TabIndex = 0;
             bttnCrearProduct.Text = "Crear Productos";
             bttnCrearProduct.UseVisualStyleBackColor = false;
-            bttnCrearProduct.Click += button1_Click;
+            bttnCrearProduct.Click += bttnCrearProduct_Click;
             // 
             // bttnInventario
             // 
@@ -60,7 +61,7 @@
             bttnInventario.TabIndex = 1;
             bttnInventario.Text = "Ver Inventario";
             bttnInventario.UseVisualStyleBackColor = false;
-            bttnInventario.Click += button2_Click;
+            bttnInventario.Click += bttnInventario_Click;
             // 
             // bttnSalir
             // 
@@ -71,7 +72,7 @@
             bttnSalir.TabIndex = 2;
             bttnSalir.Text = "Salir";
             bttnSalir.UseVisualStyleBackColor = false;
-            bttnSalir.Click += button3_Click;
+            bttnSalir.Click += bttnSalir_Click;
             // 
             // numericUpDown1
             // 
@@ -111,12 +112,24 @@
             bttnStock.UseVisualStyleBackColor = false;
             bttnStock.Click += bttnStock_Click;
             // 
+            // bttnUsers
+            // 
+            bttnUsers.BackColor = SystemColors.MenuHighlight;
+            bttnUsers.Location = new Point(142, 235);
+            bttnUsers.Name = "bttnUsers";
+            bttnUsers.Size = new Size(154, 33);
+            bttnUsers.TabIndex = 9;
+            bttnUsers.Text = "Ver Usuarios";
+            bttnUsers.UseVisualStyleBackColor = false;
+            bttnUsers.Click += bttnUsers_Click_1;
+            // 
             // FormSupervisor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(448, 436);
+            Controls.Add(bttnUsers);
             Controls.Add(bttnStock);
             Controls.Add(label1);
             Controls.Add(Productos);
@@ -129,7 +142,6 @@
             Name = "FormSupervisor";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sala de Produccion";
-            FormClosing += FormSupervisor_FormClosing;
             Load += FormSupervisor_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
@@ -146,5 +158,6 @@
         private ListBox Productos;
         private Label label1;
         private Button bttnStock;
+        private Button bttnUsers;
     }
 }

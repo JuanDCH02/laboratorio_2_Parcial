@@ -9,7 +9,7 @@ namespace Biblioteca
     public abstract class Product
     {
         protected string name;
-        protected ProductStatus status;
+        protected Status status;
         protected ulong id;
         protected static ulong contadorId;
         static Product()
@@ -21,7 +21,7 @@ namespace Biblioteca
             name = nombre;
             id = contadorId;
             contadorId += 1;
-            status = ProductStatus.Available;
+            status = Status.Available;
         }
         public ulong Id
         {
@@ -33,19 +33,15 @@ namespace Biblioteca
             get { return name; }
             set { name = value; }
         }
-        public ProductStatus Status
+        public Status Status
         {
             get { return status; }
             set { status = value; }
         }
 
         public static bool operator ==(Product a, ulong id)
-        {
-            return a.id == id;
-        }
+        { return a.id == id; }
         public static bool operator !=(Product a, ulong id)
-        {
-            return !(a.id == id);
-        }
+        { return !(a.id == id); }
     }
 }

@@ -35,8 +35,10 @@ namespace ParcialForms_01
         private void bttnSalir_Click(object sender, EventArgs e)
         {
             FormSupervisor formSupervisor = new FormSupervisor();
-            Hide();
-            formSupervisor.ShowDialog();
+            this.Hide();
+            formSupervisor.Show();
+            
+            this.Close();
         }
 
         private void bttnAgregar_Click(object sender, EventArgs e)

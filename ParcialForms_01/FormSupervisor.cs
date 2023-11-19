@@ -29,7 +29,7 @@ namespace ParcialForms_01
             Productos.SelectedIndex = 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bttnCrearProduct_Click(object sender, EventArgs e)
         {
             //crear prodct
             int index = Productos.SelectedIndex;
@@ -37,27 +37,47 @@ namespace ParcialForms_01
 
             if (index == 0)
             {
-                if (Mueble.CrearMueble(cant))
+                try
                 {
-                    MessageBox.Show("Articulo Creado");
+                    if (Mueble.CrearMueble(cant))
+                    {
+                        MessageBox.Show("Articulo Creado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Crear el Articulo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    MessageBox.Show("No se pudo Crear el Articulo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Formaro no valido para crear el Articulo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    Logic.RegistrarError("Error al crear el producto", ex);
                 }
             }
-
             if (index == 1)
             {
-
-                if (Ventilador.CrearVentilador(cant))
+                try
                 {
-                    MessageBox.Show("Articulo Creado");
+                    if (Ventilador.CrearVentilador(cant))
+                    {
+                        MessageBox.Show("Articulo Creado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Crear el Articulo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    MessageBox.Show("No se pudo Crear el Articulo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Formaro no valido para crear el Articulo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                catch (Exception ex)
+                {
+                    Logic.RegistrarError("Error al crear el producto", ex);
+                }                      
             }
             if (Inventario.checkearInventario())
             {
@@ -65,36 +85,28 @@ namespace ParcialForms_01
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bttnInventario_Click(object sender, EventArgs e)
         {
             //ver inv
             FormInventario formInventario = new FormInventario();
-            Hide();
-            DialogResult result = formInventario.ShowDialog();
+            this.Hide();
+            
+            formInventario.ShowDialog();
+            this.Close();
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void bttnSalir_Click(object sender, EventArgs e)
         {
             //salir
             FormLogin formLogin = new FormLogin();
-            Hide();
-            DialogResult result = formLogin.ShowDialog();
+            this.Hide();
+            
+            formLogin.ShowDialog();
+            this.Close();
         }
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
-        private void FormSupervisor_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Desea Salir del Programa?", "Confirmacion", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = false;
-            }
-        }
-
         private void bttnStock_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new();
@@ -102,6 +114,17 @@ namespace ParcialForms_01
             sb.AppendLine(Stock.Mostrar());
             MessageBox.Show(sb.ToString());
         }
+        private void bttnUsers_Click_1(object sender, EventArgs e)
+        {
+            //abm usuarios
+            FormABMUsuarios formABMUsuarios = new FormABMUsuarios();
+            this.Hide();
+            formABMUsuarios.Show();
+            this.Close();
+            //StringBuilder sb = new();
+            //sb.AppendLine("Los empleados actuales son:\n");
+            //sb.AppendLine(Logic.MostrarEmpleados());
+            //MessageBox.Show(sb.ToString());
+        }
     }
-
 }

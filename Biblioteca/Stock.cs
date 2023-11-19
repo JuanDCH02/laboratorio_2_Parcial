@@ -18,10 +18,8 @@ namespace Biblioteca
             int count = 0;
             foreach (Product i in ProductStock)
             {
-                if (i.Status == ProductStatus.Available  && i.Name == "Mueble")
-                {
-                    count += 1;
-                }
+                if (i.Status == Status.Available  && i.Name == "Mueble")
+                { count += 1; }
             }
             return count;
         }
@@ -31,10 +29,8 @@ namespace Biblioteca
             int count = 0;
             foreach (Product i in ProductStock)
             {
-                if (i.Status == ProductStatus.Available && i.Name == "Ventilador")
-                {
-                    count += 1;
-                }
+                if (i.Status == Status.Available && i.Name == "Ventilador")
+                { count += 1; }
             }
             return count;
         }
@@ -43,7 +39,7 @@ namespace Biblioteca
             StringBuilder sb = new StringBuilder();
             foreach (Product i in ProductStock)
             {
-                if (i.Status == ProductStatus.Available) 
+                if (i.Status == Status.Available) 
                 {
                     sb.Append($"{i.Name} (id-");
                     sb.AppendLine($"{i.Id.ToString()})");

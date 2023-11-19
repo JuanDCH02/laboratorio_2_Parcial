@@ -9,3 +9,4 @@ D:\programacion 2\Parciales\Biblioteca\obj\Debug\net6.0\Biblioteca.dll
 D:\programacion 2\Parciales\Biblioteca\obj\Debug\net6.0\refint\Biblioteca.dll
 D:\programacion 2\Parciales\Biblioteca\obj\Debug\net6.0\Biblioteca.pdb
 D:\programacion 2\Parciales\Biblioteca\obj\Debug\net6.0\ref\Biblioteca.dll
+D:\programacion 2\Parciales\Biblioteca\obj\Debug\net6.0\Biblioteca.csproj.AssemblyReference.cache

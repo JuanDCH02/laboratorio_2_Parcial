@@ -57,7 +57,7 @@
             bttnIngresar.TabIndex = 0;
             bttnIngresar.Text = "Ingresar";
             bttnIngresar.UseVisualStyleBackColor = false;
-            bttnIngresar.Click += bttnIngresar_Click;
+            bttnIngresar.Click += BttnIngresar_Click;
             // 
             // gbIngresoDatos
             // 
@@ -105,6 +105,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblNombre.Location = new Point(6, 36);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(52, 15);
@@ -156,7 +157,7 @@
             bttnIngresoAutomatico.TabIndex = 4;
             bttnIngresoAutomatico.Text = "Ingreso Automatico";
             bttnIngresoAutomatico.UseVisualStyleBackColor = false;
-            bttnIngresoAutomatico.Click += bttnIngresoAutomatico_Click;
+            bttnIngresoAutomatico.Click += BttnIngresoAutomatico_Click;
             // 
             // FormLogin
             // 

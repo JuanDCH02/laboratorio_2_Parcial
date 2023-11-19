@@ -12,9 +12,12 @@ namespace Biblioteca
         private EmployeeRole puesto;
         private uint id;
         private static uint contadorId;
+        public static List<Employee> Employees {  get; set; }
+
         static Employee()
         {
             contadorId = 1;
+            Employees = new List<Employee>();
         }
 
         public Employee(string password,string name, string surname, EmployeeRole puesto) 
@@ -35,20 +38,52 @@ namespace Biblioteca
             set { id = value; }
         }
 
-        public override string Mostrar() 
+        public static string Mostrar(Employee u) 
         {
-            StringBuilder sb = new();
-            sb.Append(base.Mostrar());
-            sb.AppendLine($",{Puesto} #{Id}");
-            return sb.ToString();
+            string datos = "";
+
+            if (u.status == Status.Available)
+            {
+                datos = $"{u.Name} {u.Surname}, {u.Puesto}(#{u.Id})"; 
+            }
+            return datos.ToString();
         }
+        public static EmployeeRole ConvertirARol(int num)
+        {
+            
+            if(num == 0)
+            {
+                return EmployeeRole.Operador;
+            }
+            else { return EmployeeRole.Supervisor; }
+        }
+        public static bool ValidarAltaEmpleado(Employee u)
+        {
+            foreach(Employee empleado in Employees)
+            {
+                if(empleado.status == Status.Available && u.name == empleado.name && u.surname == empleado.surname && u.password == empleado.password)
+                {
+                    u.Status = Status.NotAvailable;
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static Employee? BuscarPorID(int id)
+        {
+            foreach(Employee empleado in Employees)
+            {
+                if(id == empleado.id && empleado.status == Status.Available)
+                {
+                    return empleado;
+                }
+            }
+            return null;
+        }
+
         public static bool operator ==(Employee a, uint id)
-        {
-            return a.id == id;
-        }
+        { return a.id == id; }
         public static bool operator !=(Employee a, uint id)
-        {
-            return !(a.id == id);
-        }
+        { return !(a.id == id); }
     }
 }

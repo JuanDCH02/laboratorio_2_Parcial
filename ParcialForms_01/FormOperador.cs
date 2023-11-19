@@ -63,8 +63,8 @@ namespace ParcialForms_01
         {
             //salir
             FormLogin formLogin = new FormLogin();
-            Hide();
-            DialogResult result = formLogin.ShowDialog();
+            this.Hide();
+            formLogin.Show();
         }
 
         private void FormOperador_Load(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Biblioteca
 {
@@ -7,12 +8,14 @@ namespace Biblioteca
         protected string password;
         protected string name;
         protected string surname;
+        protected Status status;
 
         protected User(string password, string name, string surname)
         {
             this.password = password;
             this.name = name;
             this.surname = surname;
+            this.status = Status.Available;
         }
 
         public string Password
@@ -29,12 +32,21 @@ namespace Biblioteca
         {
             get {return surname;}
             set { surname = value;}
-        }  
-        public virtual string Mostrar()
+        } 
+        public Status Status
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append($"{Name} {Surname}");
-            return sb.ToString();
+            get {return status;}
+            set { status = value; }
+        }  
+        public virtual string Mostrar(User u)
+        {
+            string datos = string.Empty;
+
+            if (u.status == Status.Available)
+            {
+                datos = $"{Name} {Surname}";
+            }       
+            return datos.ToString();
         }
     }   
 }
